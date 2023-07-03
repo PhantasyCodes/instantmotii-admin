@@ -10,7 +10,7 @@ const transition = { duration: 1.2, ease: [0.43, 0.13, 0.23, 0.96] };
 const Loader = () => {
   const navigate = useNavigate();
   const handlePageTransition = () => {
-    navigate("/test2");
+    navigate("/login");
   };
 
   return (
