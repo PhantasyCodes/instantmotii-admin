@@ -1,9 +1,16 @@
-import React from 'react'
+import React from "react";
+import { motion } from "framer-motion";
+import "./Test.css";
+
 
 function SecondTest() {
   return (
-    <div>SecondTest</div>
-  )
+    <div
+      className="container container2"
+    >
+        <h1>Second Test</h1>
+    </div>
+  );
 }
 
-export default SecondTest
+export default SecondTest;
