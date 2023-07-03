@@ -1,5 +1,5 @@
 import React from "react";
-import "./Test.css";
+import "./Loader.css";
 import { useNavigate } from "react-router-dom";
 import Lottie from "lottie-react";
 import animationData from "../assets/logo-anim.json";
@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 
 const transition = { duration: 1.2, ease: [0.43, 0.13, 0.23, 0.96] };
 
-const Test = () => {
+const Loader = () => {
   const navigate = useNavigate();
   const handlePageTransition = () => {
     navigate("/test2");
@@ -35,4 +35,4 @@ const Test = () => {
   );
 };
 
-export default Test;
+export default Loader;
