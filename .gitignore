@@ -13,7 +13,7 @@ dist-ssr
 *.local
 .env
 
-src/pages/MapPage.jsx
+src/pages/MapPage.jsx*
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
