@@ -1,5 +1,6 @@
 import React, { useMemo } from "react";
 import { GoogleMap, Marker, useLoadScript } from "@react-google-maps/api";
+import "./MapPage.css";
 
 const Map = () => {
   const containerStyle = {
