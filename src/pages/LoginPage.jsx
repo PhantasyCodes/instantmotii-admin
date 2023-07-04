@@ -52,10 +52,9 @@ const LoginPage = () => {
         className="login-box"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        exit={{opacity: 0}}
+        exit={{ opacity: 0 }}
         transition={{ delay: 0.4 }}
       >
-        <h1>Welcome back, write your details to continue</h1>
         <div className="login-form">
           <input
             type="text"
