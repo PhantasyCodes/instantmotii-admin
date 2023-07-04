@@ -4,6 +4,7 @@ import { AnimatePresence } from "framer-motion";
 import Loader from "./pages/Loader";
 import LoginPage from "./pages/LoginPage";
 import MapPage from "./pages/MapPage";
+import LocationForm from "./pages/LocationForm";
 
 
 const App = () => {
@@ -15,6 +16,7 @@ const App = () => {
           <Route path="/" element={<Loader />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/map" element={<MapPage />} />
+          <Route path="/create-location" element={<LocationForm />} />
         </Routes>
       </AnimatePresence>
     </>
