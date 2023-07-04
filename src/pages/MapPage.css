@@ -1,3 +1,16 @@
 * {
-    overflow: visible !important;
+  overflow: visible !important;
+}
+
+.logo {
+  position: absolute;
+  top: 30px;
+  left: 53px;
+  display: flex;
+  z-index: 99;
+}
+
+.title {
+  font-family: Addington CF;
+  margin-left: 15px;
 }

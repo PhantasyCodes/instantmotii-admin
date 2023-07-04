@@ -19,7 +19,6 @@ const heroVariants = {
   },
 };
 
-
 const LoginPage = () => {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
@@ -28,39 +27,56 @@ const LoginPage = () => {
     setEmail(e.target.value);
   };
 
-  const handlePasswordChange = (e) =>{
+  const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
 
   return (
     <div className="login-container">
-      <motion.div className="logo" initial={{y: -100}} animate={{y:0}} transition={transition}>
+      <motion.div
+        className="logo"
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={transition}
+      >
         <Logo />
         <h1 className="title">InstantMotii</h1>
       </motion.div>
-      <motion.div className="login-box" initial={{opacity: 0}} animate={{opacity: 1}} transition={{delay: 0.4}}>
+      <motion.div
+        className="login-box"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.4 }}
+      >
         <h1>Welcome back, write your details to continue</h1>
         <div className="login-form">
-          <input type="text" placeholder="Enter your email" onChange={handleEmailChange}/>
-          <input type="password" placeholder="Enter your password" onChange={handlePasswordChange} />
+          <input
+            type="text"
+            placeholder="Enter your email"
+            onChange={handleEmailChange}
+          />
+          <input
+            type="password"
+            placeholder="Enter your password"
+            onChange={handlePasswordChange}
+          />
           <motion.button
-          variants={heroVariants}
-          animate="animate"
-          initial="initial"
-          whileHover={{
-            boxShadow: "1rem 1rem 0 black",
-            transition: { type: "spring", stiffness: 560, damping: 20 },
-          }}
-          className="login-btn"
-          onClick={() => {
-            console.log(email, password);
-          }}
-        >
-          Continue
-        </motion.button>
+            variants={heroVariants}
+            animate="animate"
+            initial="initial"
+            whileHover={{
+              boxShadow: "1rem 1rem 0 black",
+              transition: { type: "spring", stiffness: 560, damping: 20 },
+            }}
+            className="login-btn"
+            onClick={() => {
+              console.log(email, password);
+            }}
+          >
+            Continue
+          </motion.button>
         </div>
       </motion.div>
-
     </div>
   );
 };
