@@ -3,25 +3,27 @@ import "./LoginPage.css";
 import "../App.css";
 import Logo from "../components/Logo";
 import { motion } from "framer-motion";
-
-const transition = { duration: 1, ease: [0.43, 0.13, 0.23, 0.96] };
-
-const heroVariants = {
-  initial: {
-    opacity: 0,
-  },
-
-  animate: {
-    opacity: 1,
-    transition: {
-      duration: 1,
-    },
-  },
-};
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
+
+  const transition = { duration: 1, ease: [0.43, 0.13, 0.23, 0.96] };
+
+  const heroVariants = {
+    initial: {
+      opacity: 0,
+    },
+
+    animate: {
+      opacity: 1,
+      transition: {
+        duration: 1,
+      },
+    },
+  };
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -29,6 +31,10 @@ const LoginPage = () => {
 
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
+  };
+
+  const handleSubmit = () => {
+    navigate("/map");
   };
 
   return (
@@ -46,6 +52,7 @@ const LoginPage = () => {
         className="login-box"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
+        exit={{opacity: 0}}
         transition={{ delay: 0.4 }}
       >
         <h1>Welcome back, write your details to continue</h1>
@@ -69,9 +76,7 @@ const LoginPage = () => {
               transition: { type: "spring", stiffness: 560, damping: 20 },
             }}
             className="login-btn"
-            onClick={() => {
-              console.log(email, password);
-            }}
+            onClick={handleSubmit}
           >
             Continue
           </motion.button>
