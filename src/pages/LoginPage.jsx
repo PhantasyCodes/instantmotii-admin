@@ -1,14 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./LoginPage.css";
 import "../App.css";
 import Logo from "../components/Logo";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import axios from 'axios';
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 const LoginPage = () => {
   const navigate = useNavigate();
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
+  const dispatch = useDispatch();
+  const user = useSelector(state => state.user);
 
   const transition = { duration: 1, ease: [0.43, 0.13, 0.23, 0.96] };
 
@@ -33,8 +38,18 @@ const LoginPage = () => {
     setPassword(e.target.value);
   };
 
-  const handleSubmit = () => {
-    navigate("/map");
+  useEffect(() => {
+    console.log(user);
+  }, [user]);
+
+  const handleSubmit = async () => {
+    const response = await axios.post('https://3097-41-90-67-12.ngrok-free.app/api/v1/auth/authentication', {email: email, password: password});
+    if(response.status !== 200) {
+      return Promise.reject(response);
+    }
+    dispatch({type: 'SET_USER', payload: {email: email, password: password}});
+    dispatch({type: 'SET_AUTH_TOKEN', payload: response.data.token});
+    navigate('/map');
   };
 
   return (
