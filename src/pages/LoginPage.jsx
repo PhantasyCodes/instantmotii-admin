@@ -43,12 +43,13 @@ const LoginPage = () => {
   }, [user]);
 
   const handleSubmit = async () => {
-    const response = await axios.post('https://b125-41-90-67-12.ngrok-free.app/api/v1/auth/authentication', {email: email, password: password});
+    const response = await axios.post(`${user.url}/api/v1/auth/authentication`, {email: email, password: password});
     if(response.status !== 200) {
       return Promise.reject(response);
     }
     dispatch({type: 'SET_USER', payload: {email: email, password: password}});
     dispatch({type: 'SET_AUTH_TOKEN', payload: response.data.token});
+    localStorage.setItem('token', response.data.token);
     navigate('/map');
   };
 

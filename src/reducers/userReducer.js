@@ -1,6 +1,7 @@
 const initialState = {
     user: null,
     authToken: null,
+    url: "http://localhost:8080",
   };
   
   const userReducer = (state = initialState, action) => {
