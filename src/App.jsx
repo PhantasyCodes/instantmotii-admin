@@ -7,6 +7,7 @@ import MapPage from "./pages/MapPage";
 import LocationForm from "./pages/LocationForm";
 import { Provider } from "react-redux";
 import store from "./store";
+import CreateLocationPage from "./pages/CreateLocationPage";
 
 
 const App = () => {
@@ -18,7 +19,7 @@ const App = () => {
           <Route path="/" element={<Loader />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/map" element={<MapPage />} />
-          <Route path="/create-location" element={<LocationForm />} />
+          <Route path="/create-location" element={<CreateLocationPage />} />
         </Routes>
       </AnimatePresence>
     </Provider>
