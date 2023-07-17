@@ -3,6 +3,8 @@ import "./CreateLocationPage.css";
 import Logo from "../components/Logo";
 import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
+import axios from "axios";
+import { useSelector } from "react-redux";
 
 const heroVariants = {
     initial: {
@@ -18,11 +20,26 @@ const heroVariants = {
   };
 
 const CreateLocationPage = () => {
+    const url = useSelector((state) => state.user.url);
+    const [locationName, setLocationName] = React.useState("");
   const location = useLocation();
   console.log(location);
 
+  const handleLocationChange = (e) => {
+    setLocationName(e.target.value);
+    };
+
     const handleSubmit = async () => {
+        axios.post(`${url}/api/v1/location/create-location`, {name: locationName, latitude: location.state.lat, longitude: location.state.lng}
+        ).then((response) => {
+            console.log(response);
+        }
+        ).catch((error) => {
+            console.log(error);
+        })
     }
+
+
 
   return (
     <div className="location-container">
@@ -32,9 +49,9 @@ const CreateLocationPage = () => {
       </div>
       <div className="location-box">
         <div className="location-text">
-          <h1>Add new vehicle</h1>
+          <h1>Add new location</h1>
           <h2>Location Name</h2>
-          <input type="text" />
+          <input type="text" value={locationName} onChange={handleLocationChange} />
           <h2>Location Coordinates</h2>
           <input
             type="text"
