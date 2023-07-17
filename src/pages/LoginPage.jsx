@@ -50,7 +50,7 @@ const LoginPage = () => {
     dispatch({type: 'SET_USER', payload: {email: email, password: password}});
     dispatch({type: 'SET_AUTH_TOKEN', payload: response.data.token});
     localStorage.setItem('token', response.data.token);
-    navigate('/map');
+    navigate('/admin');
   };
 
   return (

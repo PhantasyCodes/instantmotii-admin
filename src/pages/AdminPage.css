@@ -1,0 +1,25 @@
+.admin-page-container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    padding-left: 10vw;
+}
+
+.admin-page-box {
+    background-color: #EBEBEB;
+    width: 30vw;
+    height: 30vh;
+    border-radius: 10px;
+    margin: 5vw;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.admin-page-box h1 {
+    font-family: Roboto-Medium;
+    font-size: 32px;
+    font-weight: 500;
+}
