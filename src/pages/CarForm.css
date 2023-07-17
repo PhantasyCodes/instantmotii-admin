@@ -15,5 +15,9 @@ select:focus {
 }
 
 .car-box {
-    height: 50vh;
+    height: 60vh;
+}
+
+.car-btn {
+    margin-top: 20px;
 }
